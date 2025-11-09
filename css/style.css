@@ -1,0 +1,260 @@
+@charset "UTF-8";
+
+/* 共通部分
+------------------------------- */
+html {
+    font-size: 100%;
+}
+body{
+    font-family: 'Chocolate Classical Sans', sans-serif;
+    font-weight: 400;
+    font-style: normal;
+}
+a {
+    text-decoration: none;
+}
+img {
+    max-width: 100%;
+}
+
+/* ヘッダー全体のスタイル 
+-------------------------------- */
+.main-header {
+    /* 背景色はスクリーンショットに合わせて黒 */
+    background-color: #000000;
+    /* 左右のパディングでコンテンツに余白を作る */
+    padding: 20px 80px; 
+    
+    /* ★ Flexboxで子要素を横並びにする ★ */
+    display: flex;
+    /* 子要素間に均等なスペースを空ける */
+    justify-content: space-between;
+    /* 垂直方向の中央揃え */
+    align-items: center; 
+    
+    /* ヘッダーを上部に固定する場合（任意） */
+    position: fixed;
+    width: 100%;
+    top: 0;
+    z-index: 1000;
+}
+
+/* 右側コンテナのレイアウト設定 */
+.right-container {
+    display: flex;
+    align-items: center;
+    flex-wrap: nowrap;
+}
+
+/* ナビゲーションメニューとContactボタン群の間にスペースを空ける */
+.main-nav {
+    margin-right: 20px; /* ナビとContactボタンの間に適度な余白を設定 */
+}
+/* ロゴのスタイル */
+.logo-link {
+    /* 子要素（ロゴ画像と社名テキスト）を横並びにする */
+    display: flex; 
+    
+    /* ★ 最重要: 垂直方向の中央揃え（アイコンとテキストの中央ラインを揃える） ★ */
+    align-items: center; 
+    
+    /* その他のスタイル（必要に応じて残します） */
+    text-decoration: none; 
+    color: inherit;
+    gap: 20px;
+}
+.logo img {
+    /* ロゴの画像を適切なサイズに調整 */
+    height: 70px; 
+}
+.company-name {
+    color: #fff;
+    font-family: Playfair, serif;
+    font-size: 30px;
+    font-weight: bold;
+}
+
+.main-nav ul {
+    /* リストのマーカー（点）を非表示にする */
+    list-style: none; 
+    /* デフォルトの余白をリセット */
+    padding: 0;
+    margin: 0;
+    
+    /* メニュー項目を横並びにする */
+    display: flex;
+}
+
+.main-nav li {
+    /* 各メニュー項目の間にスペースを空ける */
+    margin-right: 30px; 
+}
+
+.main-nav a {
+    /* リンクの下線を削除 */
+    text-decoration: none;
+    /* 文字色を白に */
+    color: #fff;
+    /* フォントの太さを調整 */
+    font-weight: 500;
+    /* 視覚的な中央揃えを意識してline-heightを指定しても良い */
+    line-height: 1; 
+    /* ホバー時のトランジション */
+    transition: color 0.3s;
+}
+
+.main-nav a:hover {
+    /* ホバー時に黄色に変化させる */
+    color: #00aaff;
+}
+
+/* 右側の要素を横並びにする */
+.right-elements {
+    display: flex;
+    align-items: center;
+}
+
+/* Contactボタンのスタイル */
+.contact-button {
+    text-decoration: none;
+    background-color: #00aaff; /* 濃い目の黄色 */
+    color: #000;
+    font-weight: bold;
+    /* 上下のパディングは多めに、左右はさらに多めに */
+    padding: 10px 20px; 
+    /* 角を丸くする */
+    border-radius: 5px; 
+    /* ナビとの間にスペースを確保 */
+    margin-right: 20px;
+    transition: background-color 0.3s;
+}
+
+.contact-button:hover {
+    background-color: #009cea; /* ホバーで少し暗く */
+}
+
+/* Language選択のドロップダウンコンテナ */
+.language-select {
+    position: relative; /* ドロップダウンをこの要素に対して相対的に配置するため */
+    display: inline-block; /* インライン要素として扱い、幅を内容に合わせる */
+    margin-left: 20px; /* 必要に応じて、右の要素との間に余白を調整 */
+}
+
+/* 言語切り替えボタンのスタイル */
+.lang-toggle-button {
+    background-color: transparent; /* 背景透明 */
+    color: #fff;
+    font-weight: 500;
+    border: 1px solid #fff; /* 白い枠線を追加 */
+    padding: 8px 15px; /* パディングを調整 */
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1rem; /* フォントサイズ */
+    display: flex;
+    align-items: center;
+    gap: 5px; /* 言語名と矢印の間にスペース */
+    transition: background-color 0.3s, border-color 0.3s;
+}
+
+.lang-toggle-button:hover {
+    background-color: rgba(255, 255, 255, 0.1); /* ホバー時に薄くハイライト */
+    border-color: #00aaff; /* ホバー時に枠線の色を変更 */
+}
+
+/* ドロップダウンメニューのスタイル */
+.lang-dropdown-content {
+    display: none; /* 初期状態では非表示 */
+    position: absolute;
+    background-color: #222; /* ドロップダウンの背景色 */
+    min-width: 120px; /* 最小幅 */
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.4);
+    z-index: 1; /* 他のコンテンツの上に表示 */
+    border-radius: 5px;
+    right: 0; /* 右揃え */
+    top: 100%; /* ボタンの真下に表示 */
+    margin-top: 5px; /* ボタンとの間に少し余白 */
+}
+
+/* ドロップダウン内の各言語選択肢のスタイル */
+.lang-dropdown-content a {
+    color: #fff;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block; /* ブロック要素にして、クリック可能な領域を広げる */
+    text-align: left;
+    transition: background-color 0.3s;
+}
+
+.lang-dropdown-content a:hover {
+    background-color: #00aaff; /* ホバー時にハイライト */
+    color: #000; /* ホバー時の文字色 */
+}
+
+/* ドロップダウンが表示されている時のスタイル */
+.lang-dropdown-content.show {
+    display: block;
+}
+
+/*------ ヒーローセクションのスタイル ------*/
+.hero-section {
+    /* 以前生成した背景画像のファイル名を指定 */
+    background-image: url('../images/bg.jpg'); 
+    
+    /* 背景画像を画面全体に広げる */
+    background-size: cover; 
+    /* 画像を常に中央に固定 */
+    background-position: center; 
+    
+    /* セクションの高さを画面いっぱいに設定 */
+    /* ヘッダーが固定されているため、画面全体の高さからヘッダーの高さを引く */
+    height: calc(100vh - 70px); /* 70pxはヘッダーのおおよその高さに合わせて調整してください */
+    
+    /* Flexboxで中のテキスト（.hero-text）を中央に配置 */
+    display: flex;
+    justify-content: center; /* 水平方向の中央揃え */
+    align-items: center;     /* 垂直方向の中央揃え */
+    
+    /* テキストが画像に埋もれないようにオーバーレイを追加 */
+    position: relative;
+    z-index: 1; /* テキストの上にオーバーレイを重ねるため */
+}
+
+/* 背景を暗くするオーバーレイのスタイル (任意) */
+/* 画像が明るすぎる場合に、テキストの視認性を上げるために使用します */
+.hero-section::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.4); /* 黒で40%の透明度 */
+    z-index: 2; /* テキストよりも下に配置 */
+}
+
+/* テキストコンテナをオーバーレイより上に配置 */
+.hero-text {
+    text-align: center;
+    color: #fff; /* 文字色を白に */
+    z-index: 3; /* オーバーレイより上（前面）に配置 */
+    /* テキスト幅の制限 (任意) */
+    max-width: 1000px;
+    padding: 0 20px;
+}
+
+/* キャッチコピーのスタイル */
+.hero-text h1 {
+    font-family: Playfair, serif;
+    font-size: 4rem; /* 大きめのフォントサイズ */
+    font-weight: bold;
+    margin-bottom: 20px; /* 下に余白を追加 */
+}
+
+/* サブコピーのスタイル */
+.hero-text p {
+    font-family: "Noto Sans JP", sans-serif;
+    font-size: 1.5rem;
+    font-weight: 400;
+    /* 必要に応じて、文字の間隔を広げる */
+    letter-spacing: 0.05em; 
+}
