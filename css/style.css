@@ -258,3 +258,180 @@ img {
     /* 必要に応じて、文字の間隔を広げる */
     letter-spacing: 0.05em; 
 }
+
+
+/* PC表示/モバイル表示の切り替えクラス */
+.mobile-only {
+    display: none !important; /* 初期状態（PC時）は非表示 */
+}
+
+/* モバイルメニューに含める要素のスタイル */
+.mobile-contact-elements {
+    display: none; /* 初期状態（PC時）は非表示 */
+    /* モバイル時の配置を調整するためのFlexbox */
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    margin-top: 30px;
+}
+.mobile-contact-elements .contact-button {
+    margin: 10px 0;
+    width: 80%;
+    text-align: center;
+}
+.mobile-contact-elements .language-select {
+    margin-top: 20px;
+    margin-left: 0;
+}
+
+
+/* --- ハンバーガーメニューの基本スタイル (共通CSSに追加) --- */
+.hamburger-menu {
+    /* デフォルトでは非表示 */
+    display: none; 
+    background: none;
+    border: none;
+    cursor: pointer;
+    /* その他装飾 */
+    width: 30px; 
+    height: 25px;
+    position: relative;
+    z-index: 1100; /* ヘッダー内の要素よりも手前に */
+}
+.hamburger-menu span {
+    display: block;
+    height: 3px;
+    background-color: #fff;
+    border-radius: 5px;
+    margin-bottom: 5px;
+    transition: transform 0.3s, opacity 0.3s;
+}
+
+/* --- モバイルでの表示設定 (@media (max-width: 768px) { ... } 内に追加) --- */
+@media (max-width: 768px) {
+    /* ハンバーガーメニューをモバイルでのみ表示 */
+    .hamburger-menu {
+        display: block; 
+    }
+}
+
+
+/*------ スマホバージョンの設定 ------*/
+@media (max-width: 768px) {
+
+    /* --- 1. ヘッダー全体の調整 --- */
+    .main-header {
+        /* 左右のパディングを減らす */
+        padding: 15px 20px;
+        /* 固定ヘッダーの幅を画面幅に合わせる */
+        width: 100%;
+        /* ヘッダー全体を縦に並べる（任意: ロゴとナビを分ける場合など） */
+        /* display: block; */ 
+    }
+
+    /* --- 2. ロゴの調整 --- */
+    .logo-link {
+        /* ロゴと社名の間隔を減らす */
+        gap: 10px;
+    }
+    .logo img {
+        /* ロゴ画像を小さくする */
+        height: 40px; 
+    }
+    .company-name {
+        /* 社名のフォントサイズを小さくする */
+        font-size: 20px;
+    }
+    
+    /* --- 3. ナビゲーションメニューの非表示化とハンバーガーメニューの準備 --- */
+    /* ナビメニューは非表示にし、ハンバーガーメニューで切り替える */
+    .main-nav {
+        /* デフォルトでナビを非表示にする */
+        display: none; 
+    }
+    .main-nav li {
+        width: 100%;
+        text-align: center;
+        margin-right: 0;
+        padding: 15px 0;
+        border-bottom: 1px solid rgba(255,255,255,0.1);
+    }
+
+    .main-nav ul{
+        flex-direction: column;
+        align-items: center;
+        width: 100%;
+        padding: 0;
+        margin : 0;
+    }
+
+    .contact-button {
+        /* ボタンのパディングを減らして小さくする */
+        padding: 8px 15px;
+        /* 言語選択との間隔を調整 */
+        margin-right: 10px;
+        /* 文字を小さくする */
+        font-size: 0.875rem;
+    }
+    
+    .mobile-contact-elements .contact-button {
+        white-space: nowrap; /* テキストの折り返しを防止 */
+        width: auto;
+        max-width: 90%;
+        text-align: center;
+        margin: 10px auto;
+    }   
+
+    /* 言語選択ボタンの調整 */
+    .lang-toggle-button {
+        padding: 8px 10px; /* パディングをさらに減らす */
+        font-size: 0.875rem;
+        gap: 3px;
+    }
+
+    /* --- 5. ヒーローセクションの調整 --- */
+    .hero-section {
+        /* ヘッダーの高さが変わった場合は calc の値を調整 */
+        height: calc(100vh - 55px);
+    }
+    .hero-text h1 {
+        /* キャッチコピーを小さくする */
+        font-size: 2.2rem; 
+        margin-bottom: 15px;
+    }
+    .hero-text p {
+        /* サブコピーを小さくする */
+        font-size: 1.1rem;
+    }
+    
+    /* PC表示の要素を非表示に */
+    .desktop-only {
+        display: none !important;
+    }
+    
+    /* モバイル表示の要素を表示に */
+    .mobile-only {
+        display: block !important;
+    }
+    
+    /* ハンバーガーメニューが開いたときのモバイルメニューの中身 */
+    .main-nav.open {
+        display: flex; 
+        flex-direction: column; /* 縦並び */
+        align-items: center; 
+        
+        /* モバイルメニューが開いたときにボタン類を表示 */
+        .mobile-contact-elements {
+            display: flex; /* 縦並びで表示 */
+        }
+    }
+    
+    /* ... 既存の main-nav li の縦並びCSSなど ... */
+
+    /* 右側の要素を非表示（ハンバーガーボタンのみ残す） */
+    .right-elements {
+        /* PCで表示されていた要素を非表示に */
+        /* display: flex; をリセットし、ハンバーガーボタンだけ見えるように調整が必要 */
+        justify-content: flex-end; /* ハンバーガーボタンを右端へ */
+    }
+}

@@ -33,6 +33,7 @@
 
         <!-- ヘッダー -->
         <header class="main-header">
+            
             <div class="logo">
                 <a href="/" class="logo-link">
                     <img src="images/icon.png" alt="Cresight-Japanロゴ">
@@ -44,25 +45,43 @@
             <nav class="main-nav">
                 <ul>
                     <li><a href="#">Home</a></li>
-                    <li><a href="#">About us</a></li>
-                    <li><a href="#">For Japan</a></li>
-                    <li><a href="#">For overseas</a></li>
-                    <li><a href="#">Partners</a></li>
+                    <li><a href="#about-us">About us</a></li>
+                    <li><a href="#products">Products</a></li>
+                    <li><a href="#news">News</a></li>
+                    <li><a href="#recruit">Recruit</a></li>
                 </ul>
+
+            <div class="mobile-contact-elements">
+                <a href="#" class="contact-button mobile-only">Contact ✉</a>
+                <div class="language-select mobile-only">
+                    <button id="lang-toggle-button-mobile" class="lang-toggle-button">
+                        <span id="current-lang-display-mobile">Language</span> ▼ 
+                    </button>
+                    <div id="lang-dropdown-mobile" class="lang-dropdown-content">
+                        <a href="#" class="lang-option" data-lang="ja">日本語</a>
+                        <a href="#" class="lang-option" data-lang="en">English</a>
+                </div>
+            </div>
             </nav>
             <div class="right-elements">
-                <a href="#" class="contact-button">Contact ✉</a>
-                <div class="language-select">
-                    <button id="lang-toggle-button" class="lang-toggle-button">
-                        <span id="current-lang-display">Language</span> ▼ 
+                <a href="#" class="contact-button desktop-only">Contact ✉</a>
+                <div class="language-select desktop-only">
+                    <button id="lang-toggle-button-desktop" class="lang-toggle-button">
+                        <span id="current-lang-display-desktop">Language</span> ▼ 
                     </button>
-                    <div id="lang-dropdown" class="lang-dropdown-content">                           <a href="#" class="lang-option" data-lang="ja">日本語</a>
+                    <div id="lang-dropdown-desktop" class="lang-dropdown-content">
+                        <a href="#" class="lang-option" data-lang="ja">日本語</a>
                         <a href="#" class="lang-option" data-lang="en">English</a>
                     </div>
                 </div>
+                <button class="hamburger-menu">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
             </div>
-            </div>
-        </header>
+        </div>
+    </header>
 
         <!-- ヒーローセクション -->
         <section class="hero-section">
@@ -73,5 +92,5 @@
         </section>
 
         <!--About us セクション-->
-        
+
     </body>
