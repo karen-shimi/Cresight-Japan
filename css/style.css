@@ -307,17 +307,56 @@ img {
     transition: transform 0.3s, opacity 0.3s;
 }
 
-/* --- モバイルでの表示設定 (@media (max-width: 768px) { ... } 内に追加) --- */
-@media (max-width: 768px) {
-    /* ハンバーガーメニューをモバイルでのみ表示 */
-    .hamburger-menu {
-        display: block; 
-    }
+
+
+
+/*--------About-usセクションのスタイル ------- */
+.about-us-section {
+    background-color: #000000;
+    color: #fff;
+    padding: 80px 150px;
+    margin: 0 auto;
+}
+
+.about-us-section h1 {
+    font-family: "Lexend Giga", sans-serif;
+    font-size: 2.5rem;
+    font-weight: bold;
+    margin-bottom: 30px;
+}
+.about-us-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    width: 1200px;
+}
+.about-us-text {
+    flex-basis: 50%; 
+}
+.about-us-text p {
+    font-family: "Noto Sans JP", sans-serif;
+    font-size: 1.0rem;
+    line-height: 1.8;
+    margin-bottom: 20px;
+    width: 100%;
+} 
+.about-us-image {
+    flex-basis: 45%; 
+    overflow: hidden; 
+}
+.about-us-image img {
+    display: block;
+    width: 100%;
+    height: auto;
 }
 
 
 /*------ スマホバージョンの設定 ------*/
 @media (max-width: 768px) {
+    /* ハンバーガーメニューをモバイルでのみ表示 */
+    .hamburger-menu {
+        display: block; 
+    }
 
     /* --- 1. ヘッダー全体の調整 --- */
     .main-header {
@@ -433,5 +472,39 @@ img {
         /* PCで表示されていた要素を非表示に */
         /* display: flex; をリセットし、ハンバーガーボタンだけ見えるように調整が必要 */
         justify-content: flex-end; /* ハンバーガーボタンを右端へ */
+    }
+
+    /* セクション全体のパディングをさらに調整 */
+    .about-us-section {
+        padding: 40px 20px; 
+    }
+
+    /* タイトルのフォントサイズを調整 */
+    .about-us-section h1 {
+        font-size: 2.0rem;
+        margin-bottom: 20px;
+    }
+
+    /* コンテナの配置を縦積み (Flexbox) に変更 */
+    .about-us-container {
+        flex-direction: column; /* 垂直方向に要素を積み重ねる */
+        width: 100%;
+    }
+    
+    /* テキストと画像の幅を100%に設定 */
+    .about-us-text {
+        flex-basis: auto; /* 50%の設定を解除 */
+        width: 100%;
+        margin-bottom: 30px; /* テキストの下に隙間を追加 */
+    }
+
+    .about-us-image {
+        flex-basis: auto; /* 45%の設定を解除 */
+        width: 100%;
+    }
+    
+    /* テキストのフォントサイズを調整 (任意) */
+    .about-us-text p {
+        font-size: 0.95rem;
     }
 }
