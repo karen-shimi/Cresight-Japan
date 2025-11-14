@@ -3,10 +3,11 @@
 /* 共通部分
 ------------------------------- */
 html {
+    scroll-behavior: smooth;
     font-size: 100%;
 }
 body{
-    font-family: 'Chocolate Classical Sans', sans-serif;
+    font-family: 'Noto Sans JP', sans-serif;
     font-weight: 400;
     font-style: normal;
 }
@@ -158,7 +159,7 @@ img {
 
 .lang-toggle-button:hover {
     background-color: rgba(255, 255, 255, 0.1); /* ホバー時に薄くハイライト */
-    border-color: #00aaff; /* ホバー時に枠線の色を変更 */
+    border-color: #009cea; /* ホバー時に枠線の色を変更 */
 }
 
 /* ドロップダウンメニューのスタイル */
@@ -186,7 +187,7 @@ img {
 }
 
 .lang-dropdown-content a:hover {
-    background-color: #00aaff; /* ホバー時にハイライト */
+    background-color: #009cead7; /* ホバー時にハイライト */
     color: #000; /* ホバー時の文字色 */
 }
 
@@ -350,7 +351,114 @@ img {
     height: auto;
 }
 
+/* ボタンの共通スタイル */
+.button-fill {
+    display: inline-flex; /* 矢印とテキストを横並びにする */
+    align-items: center; /* 垂直方向の中央揃え */
+    padding: 12px 30px;
+    text-decoration: none;
+    font-size: 1.0rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    margin-top: 20px;
+    
+    /* フィルデザイン */
+    background-color: #0015ff; /* 背景色 (例: オレンジレッド) */
+    color: #FFFFFF; /* テキストを白に */
+    border: none;
+    border-radius: 25px; /* 角を大きく丸く */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* 軽い影を付けて立体感を出す */
+}
 
+/* 矢印のスタイル */
+.button-fill::after {
+    content: '→'; /* 矢印の記号 */
+    margin-left: 10px; /* テキストとの間隔 */
+    font-size: 1.2rem;
+    transition: transform 0.3s ease;
+}
+
+/* ホバー時のスタイル */
+.button-fill:hover {
+    background-color: #0015ffde; /* 背景色を少し明るく */
+}
+
+/* ホバー時に矢印を少し移動させる */
+.button-fill:hover::after {
+    transform: translateX(3px);
+}
+
+/*--------serviceセクションのスタイル ------- */
+.service-section {
+    background-color: #ffffff;
+    color: #000;
+    padding: 80px 150px;
+    margin: 0 auto;
+}
+.service-section h1 {
+    font-family: "Lexend Giga", sans-serif;
+    font-size: 2.5rem;
+    font-weight: bold;
+    margin-bottom: 25px;
+    color: #0088ff;
+}
+.service-section h2 {
+    font-family: "Lexend Giga", sans-serif;
+    font-size: 1.75rem;
+}
+.service-section p {
+    font-family: "Noto Sans JP", sans-serif;
+    font-size: 1.12rem;
+    line-height: 1.8;
+    margin-top: 30px;
+    width: 100%;
+} 
+/* ★★★ 横並びの核心部分 ★★★ */
+.service-card-wrapper {
+    display: flex; /* Flexコンテナにする */
+    justify-content: space-between; /* カード間に均等なスペースを設ける */
+    gap: 30px; /* カード間の固定スペース (Flexbox/Gridの現代的な指定) */
+    margin-top: 50px;
+}
+
+/* 各カードのデザイン */
+.service-card {
+    /* 1/3の幅から、gap分を引いた幅にする (flex-grow: 1 で均等幅) */
+    flex-grow: 1; 
+    flex-basis: 0; /* flex-grow: 1 と組み合わせることで均等幅を実現 */
+    
+    /* カードの見た目 */
+    border: 1px solid #ccc; /* 枠線 */
+    padding: 30px;
+    height: auto; /* コンテンツに合わせて高さを調整 */
+    transition: box-shadow 0.3s ease-out, transform 0.3s ease-out; /* ホバーアニメーションの準備 */
+}
+/* ★★★ ホバーで浮き上がらせるエフェクト ★★★ */
+.service-card:hover {
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15); 
+    transform: translateY(-5px); 
+     border-color: #eee; 
+}
+.service-card h2{
+    font-family: "Noto Sans JP", sans-serif;
+    font-size: 1.5rem;
+    margin-top: 20px;
+    font-weight: 400;
+}
+.service-card .card-category {
+    font-family: "Noto Sans JP", sans-serif;
+    font-size: 0.85rem;
+    color: #7a7a7a;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+.service-card p {
+    font-family: "Noto Sans JP", sans-serif;
+    font-size: 1.0rem;
+    line-height: 1.8;
+    margin-top: 20px;
+}
 /*------ スマホバージョンの設定 ------*/
 @media (max-width: 768px) {
     /* ハンバーガーメニューをモバイルでのみ表示 */
@@ -507,4 +615,80 @@ img {
     .about-us-text p {
         font-size: 0.95rem;
     }
+
+    /* Contactボタン（button-fill）の調整 */
+    .button-fill {
+        /* マージンを調整し、モバイルで幅を広く使う */
+        margin-top: 15px; 
+        padding: 10px 20px;
+        font-size: 0.9rem;
+        /* 適切な幅を設定したい場合は以下を有効化 */
+        /* width: 80%; */
+        /* margin-left: auto; */
+        /* margin-right: auto; */
+    }
+    .button-fill::after {
+        font-size: 1.0rem;
+    }
+
+    /* --- Serviceセクション全体の調整 --- */
+    .service-section {
+        padding: 40px 20px; /* 左右のパディングを減らす */
+    }
+
+    /* Serviceタイトルの調整 */
+    .service-section h1 {
+        font-size: 2.0rem;
+        margin-bottom: 15px;
+    }
+    
+    /* Serviceセクションのテキスト調整（例: 導入文） */
+    .service-section p {
+        font-size: 1.0rem;
+        margin-top: 20px;
+    }
+
+    /* --- Serviceカードの調整 --- */
+    .service-card-wrapper {
+        flex-direction: column; /* ★横並びから縦並びへ変更★ */
+        gap: 20px; /* カード間のスペースを調整 */
+        margin-top: 30px;
+    }
+    
+    .service-card {
+        /* 縦並びなので、幅を100%に */
+        width: 100%;
+        padding: 20px;
+        flex-grow: 0;
+        flex-basis: auto;
+    }
+    
+    /* カード内の要素の調整 */
+    .service-card .card-number {
+        font-size: 2.0rem; /* 番号を少し小さく */
+        margin-bottom: 15px;
+    }
+
+    .service-card h2 {
+        font-size: 1.3rem; /* タイトルを調整 */
+    }
+    
+    .service-card .card-category {
+        font-size: 0.8rem;
+    }
+    
+    .service-card p {
+        font-size: 0.9rem; /* 説明文を調整 */
+        margin-top: 15px;
+    }
+
+    /* Serviceセクションのh2（Serviceセクション固有のh2がないため、カード内のh2を参照） */
+    /* .service-section h2 はカード内のh2とは別に、Serviceセクション直下にh2がある場合のスタイルです */
+    /* 既存のCSSにはServiceセクション直下のh2の調整がないため、カード内のh2を優先します。 */
+    /* もしServiceセクション直下にh2がある場合は、以下のように調整してください。 */
+    /*
+    .service-section h2 {
+        font-size: 1.5rem;
+    }
+    */
 }
