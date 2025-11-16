@@ -36,6 +36,7 @@ const translations = {
         'card-3-title-g':'PoC（概念検証）・市場適合テスト',
         'card-3-category-g':'コンサルティング',
         'card-3-text-g':'日本企業との共同プロジェクトを通じ、製品の市場適合性を実際に検証。得られた結果をレポート化し、改良提案まで行います。',
+        'products-button':'製品・サービスについて',
     },
     'en': {
         'home': 'Home',
@@ -74,6 +75,7 @@ const translations = {
         'card-3-title-g':'PoC & Market Validation',
         'card-3-category-g':'Consulting',
         'card-3-text-g':'We conduct real-world PoC projects with Japanese enterprises to test market fit, gather feedback, and generate measurable results before full-scale rollout.',
+        'products-button':'About Products & Services',
     }
     
 };
@@ -185,6 +187,7 @@ document.addEventListener('DOMContentLoaded', function() {
         if (aboutUsButton) aboutUsButton.textContent = translations[lang]['about-us-button'];
         
         // ★★★ Service セクションのテキストを更新 ★★★
+        const productsButton = document.getElementById('products-button');
         const serviceForJapanese = document.getElementById('Service-for-Japanese');
         const serviceText = document.getElementById('service-text');
         const card1Title = document.getElementById('card-1-title');
@@ -197,6 +200,7 @@ document.addEventListener('DOMContentLoaded', function() {
         const card3Category = document.getElementById('card-3-category');
         const card3Text = document.getElementById('card-3-text');
 
+        if (productsButton) productsButton.textContent = translations[lang]['products-button'];
         if (serviceForJapanese) serviceForJapanese.textContent = translations[lang]['service-for-Japanese'];
         if (serviceText) serviceText.textContent = translations[lang]['service-text'];
         if (card1Title) card1Title.textContent = translations[lang]['card-1-title'];
@@ -234,7 +238,7 @@ document.addEventListener('DOMContentLoaded', function() {
         if (card3CategoryG) card3CategoryG.textContent = translations[lang]['card-3-category-g'];
         if (card3TextG) card3TextG.textContent = translations[lang]['card-3-text-g'];
 
-        
+
         // Contactボタンのテキストを更新 (両方)
         const contactButtonDesktop = document.querySelector('.contact-button.desktop-only');
         const contactButtonMobile = document.querySelector('.contact-button.mobile-only');

@@ -361,10 +361,10 @@ img {
     font-weight: 600;
     cursor: pointer;
     transition: background-color 0.3s ease;
-    margin-top: 20px;
+    margin-top: 40px;
     
     /* フィルデザイン */
-    background-color: #0015ff; /* 背景色 (例: オレンジレッド) */
+    background-color: #0015ff;
     color: #FFFFFF; /* テキストを白に */
     border: none;
     border-radius: 25px; /* 角を大きく丸く */
@@ -381,7 +381,7 @@ img {
 
 /* ホバー時のスタイル */
 .button-fill:hover {
-    background-color: #0015ffde; /* 背景色を少し明るく */
+    background-color: #0015ffba; 
 }
 
 /* ホバー時に矢印を少し移動させる */
@@ -404,12 +404,59 @@ img {
 }
 
 /*--------serviceセクションのスタイル ------- */
+.section-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 30px;
+    position: relative; /* z-indexを有効にするために必要 */
+    z-index: 100; /* 他のセクションが固定ヘッダーの下に隠れることがないように高い値に */
+}
+
 .service-section {
     background-color: #ffffff;
     color: #000;
     padding: 0 150px;
     margin-top: -50px;
 }
+/* ボタンの共通スタイル (二個目)*/
+.button-fill-2 {
+    display: inline-flex; /* 矢印とテキストを横並びにする */
+    align-items: center; /* 垂直方向の中央揃え */
+    padding: 12px 30px;
+    text-decoration: none;
+    font-size: 1.0rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    z-index: 101; /* section-headerよりも少し高い値に */
+    
+    /* フィルデザイン */
+    background-color: #0015ff;
+    color: #FFFFFF; /* テキストを白に */
+    border: none;
+    border-radius: 25px; /* 角を大きく丸く */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* 軽い影を付けて立体感を出す */
+}
+
+/* ★.button-fill-2 に矢印を適用 ★ */
+.button-fill-2::after {
+    content: '→'; /* 矢印の記号 */
+    margin-left: 10px;
+    font-size: 1.2rem;
+    transition: transform 0.3s ease;
+}
+
+/* ★.button-fill-2 にホバー時のスタイルを適用 ★ */
+.button-fill-2:hover {
+    background-color: #0015ffba; 
+}
+
+/* ★.button-fill-2 にホバー時の矢印移動を適用 ★ */
+.button-fill-2:hover::after {
+    transform: translateX(3px);
+}
+
 .service-section h1 {
     font-family: "Lexend Giga", sans-serif;
     font-size: 2.5rem;
@@ -480,6 +527,172 @@ img {
     line-height: 1.8;
     margin-top: 20px;
 }
+/*--------partnersセクションのスタイル ------- */
+.partners-section {
+    background-color: #ffffff;
+    padding: 80px 150px;
+    margin: 0 auto;
+}
+.partners-section h1 {
+    font-family: "Lexend Giga", sans-serif;
+    font-size: 2.5rem;
+    font-weight: bold;
+    margin-top: 120px;
+    margin-bottom: 25px;
+    color: #0088ff;
+}
+
+.partners-logos {
+    display: flex;
+    flex-wrap: wrap; 
+    justify-content: space-around; 
+    align-items: center;
+    gap: 30px; /* アイテム間の間隔 */
+    
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 40px 0;
+}
+
+.partners-logos img {
+    /* 4つのロゴが並ぶように、25%から間隔分を引いた幅を指定 */
+    flex-basis: calc(25% - 30px); 
+    max-width: 100%;
+    height: auto;
+}
+
+/*--------contactセクションのスタイル ------- */
+.contact-section {
+    background-color: #ffffff;
+    padding: 80px 150px;
+    margin: 0 auto;
+    text-align: center;
+}
+.contact-section h1 {
+    font-family: "Lexend Giga", sans-serif;
+    font-size: 2.5rem;
+    font-weight: bold;
+    margin-top: 120px;
+    margin-bottom: 40px;
+    color: #0088ff;
+}
+
+/*-------- フッター全体のスタイル ------- */
+.main-footer {
+    background-color: #0d0d0d; /* 濃いグレーまたは黒 */
+    color: #f0f0f0; /* 文字色を明るく */
+    padding: 60px 150px 30px; /* 上下にパディング、下に著作権表示分を確保 */
+}
+
+.footer-container {
+    display: flex; /* Flexboxでカラムを横並び */
+    justify-content: space-between; /* 均等にスペースを空ける */
+    max-width: 1200px;
+    margin: 0 auto;
+    padding-bottom: 40px; /* 著作権エリアとの間にスペース */
+}
+
+/* 各カラムの基本設定 */
+.footer-col {
+    flex-basis: 30%; /* 各カラムの幅を調整 */
+}
+
+/* ロゴエリアのスタイル */
+.footer-logo {
+    font-family: 'Playfair', serif;
+    font-size: 1.8rem;
+    font-weight: bold;
+    color: #fff;
+    display: block;
+    margin-bottom: 15px;
+}
+
+.footer-col p {
+    font-size: 0.9rem;
+    line-height: 1.6;
+    margin-bottom: 10px;
+    color: #c0c0c0;
+}
+
+/* 共通の見出しスタイル */
+.footer-col h3 {
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: #00AEEF; /* アクセントカラーの青を使用 */
+    margin-bottom: 20px;
+    border-bottom: 2px solid rgba(0, 174, 239, 0.3); /* 青い下線 */
+    padding-bottom: 5px;
+}
+
+/* ナビゲーションリストのスタイル */
+.quick-links ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.quick-links a {
+    color: #f0f0f0;
+    display: block;
+    padding: 5px 0;
+    font-size: 0.95rem;
+    transition: color 0.3s;
+}
+
+.quick-links a:hover {
+    color: #00AEEF; /* ホバーでアクセントカラーに */
+}
+
+/* SNSアイコンのスタイル (Font Awesomeが必要) */
+.social-links {
+    margin-top: 20px;
+}
+
+.social-links a {
+    color: #f0f0f0;
+    font-size: 1.5rem;
+    margin-right: 15px;
+    transition: color 0.3s;
+}
+
+.social-links a:hover {
+    color: #00AEEF;
+}
+
+/* 著作権表示エリア */
+.footer-bottom {
+    text-align: center;
+    border-top: 1px solid #333;
+    padding-top: 20px;
+}
+
+.footer-bottom p {
+    font-size: 0.8rem;
+    color: #999;
+    margin: 0;
+}
+
+/*------ モバイル対応 (768px以下で縦積み) ------*/
+@media (max-width: 768px) {
+    .main-footer {
+        padding: 40px 20px;
+    }
+
+    .footer-container {
+        flex-direction: column; /* 縦積みに変更 */
+        gap: 30px; /* カラム間のスペース */
+    }
+
+    .footer-col {
+        flex-basis: 100%; /* 幅を100%に */
+        padding-bottom: 20px;
+    }
+    
+    .footer-bottom {
+        padding-top: 15px;
+    }
+}
+
 /*------ スマホバージョンの設定 ------*/
 @media (max-width: 768px) {
     /* ハンバーガーメニューをモバイルでのみ表示 */
@@ -702,14 +915,7 @@ img {
         font-size: 0.9rem; /* 説明文を調整 */
         margin-top: 15px;
     }
-
-    /* Serviceセクションのh2（Serviceセクション固有のh2がないため、カード内のh2を参照） */
-    /* .service-section h2 はカード内のh2とは別に、Serviceセクション直下にh2がある場合のスタイルです */
-    /* 既存のCSSにはServiceセクション直下のh2の調整がないため、カード内のh2を優先します。 */
-    /* もしServiceセクション直下にh2がある場合は、以下のように調整してください。 */
-    /*
-    .service-section h2 {
-        font-size: 1.5rem;
+    .partners-logos img {
+        flex-basis: calc(50% - 20px);
     }
-    */
 }
