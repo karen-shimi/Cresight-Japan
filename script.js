@@ -37,6 +37,8 @@ const translations = {
         'card-3-category-g':'コンサルティング',
         'card-3-text-g':'日本企業との共同プロジェクトを通じ、製品の市場適合性を実際に検証。得られた結果をレポート化し、改良提案まで行います。',
         'products-button':'製品・サービスについて',
+        'address':'〒100-0005 東京都千代田区丸の内',
+        'contact-text':'ご質問やご相談がございましたら、以下のフォームよりお気軽にお問い合わせください。'
     },
     'en': {
         'home': 'Home',
@@ -76,6 +78,8 @@ const translations = {
         'card-3-category-g':'Consulting',
         'card-3-text-g':'We conduct real-world PoC projects with Japanese enterprises to test market fit, gather feedback, and generate measurable results before full-scale rollout.',
         'products-button':'About Products & Services',
+        'address':'100-0005 Marunouchi, Chiyoda-ku, Tokyo',
+        'contact-text':'If you have any questions or inquiries, please feel free to contact us using the form below.'
     }
     
 };
@@ -239,12 +243,26 @@ document.addEventListener('DOMContentLoaded', function() {
         if (card3TextG) card3TextG.textContent = translations[lang]['card-3-text-g'];
 
 
+        //フッターのクイックリンクを更新
+        const footerLinks = document.querySelectorAll('.footer-col.quick-links ul li a');
+        if (footerLinks[0]) footerLinks[0].textContent = translations[lang]['about_us'];
+        if (footerLinks[1]) footerLinks[1].textContent = translations[lang]['products'];
+        if (footerLinks[2]) footerLinks[2].textContent = translations[lang]['contact'];
+
+        // フッターの住所を更新
+        const addressElement = document.getElementById('address');
+        if (addressElement) addressElement.textContent = translations[lang]['address'];
+
         // Contactボタンのテキストを更新 (両方)
         const contactButtonDesktop = document.querySelector('.contact-button.desktop-only');
         const contactButtonMobile = document.querySelector('.contact-button.mobile-only');
         if (contactButtonDesktop) contactButtonDesktop.textContent = translations[lang]['contact'];
         if (contactButtonMobile) contactButtonMobile.textContent = translations[lang]['contact'];
         
+        // Contactセクションのテキストを更新
+        const contactText = document.getElementById('contact-text');
+        if (contactText) contactText.textContent = translations[lang]['contact-text'];
+
         // ヒーローセクションのテキストを更新
         const heroH1 = document.querySelector('.hero-text h1');
         const heroP = document.querySelector('.hero-text p');
