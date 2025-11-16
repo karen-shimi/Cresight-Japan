@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+        <meta charset="utf-8">
+        <title>Cresight-Japan</title>
+        <meta name="description" content="Cresight-Japanの公式サイトです。Cresight-Japanは海外のSaaS・AI企業と日本企業を繋ぐ架け橋となり、日本企業の販売支援、ローカライゼーション、PoC推進を支援します。">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- ファビコン -->
+        <link rel="icon" type="image/png" href="images/icon.png">
+
+    <!-- リセットCSS -->
+        <link rel="stylesheet" href="https://unpkg.com/ress/dist/ress.min.css">
+
+    <!-- Googleフォント -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Lexend+Giga&family=Noto+Sans+JP:wght@100..900&family=Playfair:opsz,wght@5..1200,500&display=swap" rel="stylesheet">
+    
+    <!-- オリジナルCSS -->
+    <link rel="stylesheet" href="css/style.css">
+
+    <!--言語切り替え-->
+    <link rel="alternate" href="https://yourwebsite.com/ja/" hreflang="ja">
+    <link rel="alternate" href="https://yourwebsite.com/en/" hreflang="en">
+</head>
+
+    <body>
+        <!-- 言語切り替え用スクリプト -->
+        <script src="script.js" defer></script>
+
+        <!-- ヘッダー -->
+        <header class="main-header">
+            
+            <div class="logo">
+                <a href="/" class="logo-link">
+                    <img src="images/icon.png" alt="Cresight-Japanロゴ">
+                    <span class="company-name">Cresight Japan</span>
+                </a>
+            </div>
+
+            <div class="right-container">
+            <nav class="main-nav">
+                <ul>
+                    <li><a href="#home">Home</a></li>
+                    <li><a href="#about-us">About us</a></li>
+                    <li><a href="#products">Products</a></li>
+                    <li><a href="#news">News</a></li>
+                    <li><a href="#recruit">Recruit</a></li>
+                </ul>
+
+            <div class="mobile-contact-elements">
+                <a href="#" class="contact-button mobile-only">Contact ✉</a>
+                <div class="language-select mobile-only">
+                    <button id="lang-toggle-button-mobile" class="lang-toggle-button">
+                        <span id="current-lang-display-mobile">Language</span> ▼ 
+                    </button>
+                    <div id="lang-dropdown-mobile" class="lang-dropdown-content">
+                        <a href="#" class="lang-option" data-lang="ja">日本語</a>
+                        <a href="#" class="lang-option" data-lang="en">English</a>
+                </div>
+            </div>
+            </nav>
+            <div class="right-elements">
+                <a href="#" class="contact-button desktop-only">Contact ✉</a>
+                <div class="language-select desktop-only">
+                    <button id="lang-toggle-button-desktop" class="lang-toggle-button">
+                        <span id="current-lang-display-desktop">Language</span> ▼ 
+                    </button>
+                    <div id="lang-dropdown-desktop" class="lang-dropdown-content">
+                        <a href="#" class="lang-option" data-lang="ja">日本語</a>
+                        <a href="#" class="lang-option" data-lang="en">English</a>
+                    </div>
+                </div>
+                <button class="hamburger-menu">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
+            </div>
+        </div>
+    </header>
+
+        <!-- ヒーローセクション -->
+        <section class="hero-section" id="home">
+            <div class="hero-text">
+            <h1>Bridging Global Innovation to Japan</h1>
+            <p>海外AI・SaaS企業の日本展開を最速で支援</p>
+            </div>
+        </section>
+
+        <!--About us セクション-->
+        <section class="about-us-section">
+            <h1>About Us</h1>
+            <div class="about-us-container">
+                <div class="about-us-text">
+                    <p id="about-us-p1">Cresight Japanは、「世界の革新を、言語の壁なく日本へ」という理念のもと、海外のSaaS・AI企業と日本企業をつなぐ架け橋として設立されました。私たちは、海外で生まれた最先端のテクノロジーを日本の企業が活用できるよう、販売支援、ローカライゼーション、PoC(概念実証)による市場検証を包括的に行っています。    
+                    </p>
+                    <p id="about-us-p2">日本では優れた海外ソリューションが数多く存在しながらも、言語や文化、契約の壁によって導入が進まないという課題があります。Cresight Japanはその障壁を取り払い、世界中の革新的な製品をスムーズに日本市場へ届けることを目指しています。
+                    </p>
+                    <p id="about-us-p3">私たちは、単なる販売代理ではなく「共に市場を創るパートナー」であることにこだわります。海外企業には日本での長期的な成長基盤を、日本企業には海外テクノロジーを最速で取り入れる手段を提供し、双方向の価値創造を実現します。
+                    </p>
+                    <p id="about-us-p4">Cresight Japanは、世界のテクノロジーが日本の課題を解決し、日本から再び世界へと革新が循環していく未来を描いています。その橋の上に立ち、変化を実行するのが、私たちの役割です。
+                   </p>
+                </div>
+            <div class="about-us-image">
+                <img src="images/bridge.png" alt="About Us Image">
+            </div>
+            </div>
+            <a href="about-us.html" class="button-fill" id="about-us-button">詳細はこちら</a>
+        </section>
+
+        <div class="wave-divider">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320">
+                <path fill="#000000" fill-opacity="1" d="M0,192L48,176C96,160,192,128,288,144C384,160,480,224,576,234.7C672,245,768,203,864,197.3C960,192,1056,224,1152,245.3C1248,267,1344,277,1392,282.7L1440,288L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z"></path>
+            </svg>
+        </div>
+
+
+        <!-- service セクション -->
+        <section class="service-section">
+            <h1>Service</h1>
+            <h2 id="Service-for-Japanese">- for Japanese</h2>
+            <p id="service-text">海外企業との直接的な橋渡しを行い、製品選定からPoC（概念実証）、本格導入までを一貫してサポートします。</p>
+
+            <div class="service-card-wrapper">
+            <div class="service-card">
+            <span class="card-number">01</span>
+            <h2 id="card-1-title">最新テクノロジーの導入支援</h2>
+            <p class="card-category" id="card-1-category">技術実装</p>
+            <p class="card-text" id="card-1-text"> 世界で注目されるAI・自動化・セキュリティ分野の海外ソフトウェアを厳選し、日本企業の課題に最適化。
+                英語UIや契約の壁を取り除き、導入をスムーズに実現します。</p>
+        </div>
+        
+        <div class="service-card">
+            <span class="card-number">02</span>
+            <h2 id="card-2-title">PoC（概念実証）による<br>低リスク検証</h2>
+            <p class="card-category" id="card-2-category">コンサルティング</p>
+            <p class="card-text" id="card-2-text">契約前にトライアル導入を行い、効果をデータで可視化。
+                日本企業のニーズに即した改善提案を海外チームへ直接フィードバックします。</p>
+            </div>
+        
+        <div class="service-card">
+            <span class="card-number">03</span>
+            <h2 id="card-3-title">運用・サポート体制の構築</h2>
+            <p class="card-category" id="card-3-category">マネージメントサービス</p>
+            <p class="card-text" id="card-3-text">導入後の運用支援、FAQ整備、社内研修などもサポート。
+                海外企業とのコミュニケーションを代行し、長期的な安定運用を支えます。</p>
+        </div>
+        </div>
+        </section>
+    </body>

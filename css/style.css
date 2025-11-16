@@ -1,0 +1,708 @@
+@charset "UTF-8";
+
+/* 共通部分
+------------------------------- */
+html {
+    scroll-behavior: smooth;
+    font-size: 100%;
+}
+body{
+    font-family: 'Noto Sans JP', sans-serif;
+    font-weight: 400;
+    font-style: normal;
+}
+a {
+    text-decoration: none;
+}
+img {
+    max-width: 100%;
+}
+
+/* ヘッダー全体のスタイル 
+-------------------------------- */
+.main-header {
+    /* 背景色はスクリーンショットに合わせて黒 */
+    background-color: #000000;
+    /* 左右のパディングでコンテンツに余白を作る */
+    padding: 20px 80px; 
+    
+    /* ★ Flexboxで子要素を横並びにする ★ */
+    display: flex;
+    /* 子要素間に均等なスペースを空ける */
+    justify-content: space-between;
+    /* 垂直方向の中央揃え */
+    align-items: center; 
+    
+    /* ヘッダーを上部に固定する場合（任意） */
+    position: fixed;
+    width: 100%;
+    top: 0;
+    z-index: 1000;
+}
+
+/* 右側コンテナのレイアウト設定 */
+.right-container {
+    display: flex;
+    align-items: center;
+    flex-wrap: nowrap;
+}
+
+/* ナビゲーションメニューとContactボタン群の間にスペースを空ける */
+.main-nav {
+    margin-right: 20px; /* ナビとContactボタンの間に適度な余白を設定 */
+}
+/* ロゴのスタイル */
+.logo-link {
+    /* 子要素（ロゴ画像と社名テキスト）を横並びにする */
+    display: flex; 
+    
+    /* ★ 最重要: 垂直方向の中央揃え（アイコンとテキストの中央ラインを揃える） ★ */
+    align-items: center; 
+    
+    /* その他のスタイル（必要に応じて残します） */
+    text-decoration: none; 
+    color: inherit;
+    gap: 20px;
+}
+.logo img {
+    /* ロゴの画像を適切なサイズに調整 */
+    height: 70px; 
+}
+.company-name {
+    color: #fff;
+    font-family: Playfair, serif;
+    font-size: 30px;
+    font-weight: bold;
+}
+
+.main-nav ul {
+    /* リストのマーカー（点）を非表示にする */
+    list-style: none; 
+    /* デフォルトの余白をリセット */
+    padding: 0;
+    margin: 0;
+    
+    /* メニュー項目を横並びにする */
+    display: flex;
+}
+
+.main-nav li {
+    /* 各メニュー項目の間にスペースを空ける */
+    margin-right: 30px; 
+}
+
+.main-nav a {
+    /* リンクの下線を削除 */
+    text-decoration: none;
+    /* 文字色を白に */
+    color: #fff;
+    /* フォントの太さを調整 */
+    font-weight: 500;
+    /* 視覚的な中央揃えを意識してline-heightを指定しても良い */
+    line-height: 1; 
+    /* ホバー時のトランジション */
+    transition: color 0.3s;
+}
+
+.main-nav a:hover {
+    /* ホバー時に黄色に変化させる */
+    color: #00aaff;
+}
+
+/* 右側の要素を横並びにする */
+.right-elements {
+    display: flex;
+    align-items: center;
+}
+
+/* Contactボタンのスタイル */
+.contact-button {
+    text-decoration: none;
+    background-color: #00aaff; /* 濃い目の黄色 */
+    color: #000;
+    font-weight: bold;
+    /* 上下のパディングは多めに、左右はさらに多めに */
+    padding: 10px 20px; 
+    /* 角を丸くする */
+    border-radius: 5px; 
+    /* ナビとの間にスペースを確保 */
+    margin-right: 20px;
+    transition: background-color 0.3s;
+}
+
+.contact-button:hover {
+    background-color: #009cea; /* ホバーで少し暗く */
+}
+
+/* Language選択のドロップダウンコンテナ */
+.language-select {
+    position: relative; /* ドロップダウンをこの要素に対して相対的に配置するため */
+    display: inline-block; /* インライン要素として扱い、幅を内容に合わせる */
+    margin-left: 20px; /* 必要に応じて、右の要素との間に余白を調整 */
+}
+
+/* 言語切り替えボタンのスタイル */
+.lang-toggle-button {
+    background-color: transparent; /* 背景透明 */
+    color: #fff;
+    font-weight: 500;
+    border: 1px solid #fff; /* 白い枠線を追加 */
+    padding: 8px 15px; /* パディングを調整 */
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1rem; /* フォントサイズ */
+    display: flex;
+    align-items: center;
+    gap: 5px; /* 言語名と矢印の間にスペース */
+    transition: background-color 0.3s, border-color 0.3s;
+}
+
+.lang-toggle-button:hover {
+    background-color: rgba(255, 255, 255, 0.1); /* ホバー時に薄くハイライト */
+    border-color: #009cea; /* ホバー時に枠線の色を変更 */
+}
+
+/* ドロップダウンメニューのスタイル */
+.lang-dropdown-content {
+    display: none; /* 初期状態では非表示 */
+    position: absolute;
+    background-color: #222; /* ドロップダウンの背景色 */
+    min-width: 120px; /* 最小幅 */
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.4);
+    z-index: 1; /* 他のコンテンツの上に表示 */
+    border-radius: 5px;
+    right: 0; /* 右揃え */
+    top: 100%; /* ボタンの真下に表示 */
+    margin-top: 5px; /* ボタンとの間に少し余白 */
+}
+
+/* ドロップダウン内の各言語選択肢のスタイル */
+.lang-dropdown-content a {
+    color: #fff;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block; /* ブロック要素にして、クリック可能な領域を広げる */
+    text-align: left;
+    transition: background-color 0.3s;
+}
+
+.lang-dropdown-content a:hover {
+    background-color: #009cead7; /* ホバー時にハイライト */
+    color: #000; /* ホバー時の文字色 */
+}
+
+/* ドロップダウンが表示されている時のスタイル */
+.lang-dropdown-content.show {
+    display: block;
+}
+
+/*------ ヒーローセクションのスタイル ------*/
+.hero-section {
+    /* 以前生成した背景画像のファイル名を指定 */
+    background-image: url('../images/bg.jpg'); 
+    
+    /* 背景画像を画面全体に広げる */
+    background-size: cover; 
+    /* 画像を常に中央に固定 */
+    background-position: center; 
+    
+    /* セクションの高さを画面いっぱいに設定 */
+    /* ヘッダーが固定されているため、画面全体の高さからヘッダーの高さを引く */
+    height: calc(100vh - 70px); /* 70pxはヘッダーのおおよその高さに合わせて調整してください */
+    
+    /* Flexboxで中のテキスト（.hero-text）を中央に配置 */
+    display: flex;
+    justify-content: center; /* 水平方向の中央揃え */
+    align-items: center;     /* 垂直方向の中央揃え */
+    
+    /* テキストが画像に埋もれないようにオーバーレイを追加 */
+    position: relative;
+    z-index: 1; /* テキストの上にオーバーレイを重ねるため */
+}
+
+/* 背景を暗くするオーバーレイのスタイル (任意) */
+/* 画像が明るすぎる場合に、テキストの視認性を上げるために使用します */
+.hero-section::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.4); /* 黒で40%の透明度 */
+    z-index: 2; /* テキストよりも下に配置 */
+}
+
+/* テキストコンテナをオーバーレイより上に配置 */
+.hero-text {
+    text-align: center;
+    color: #fff; /* 文字色を白に */
+    z-index: 3; /* オーバーレイより上（前面）に配置 */
+    /* テキスト幅の制限 (任意) */
+    max-width: 1000px;
+    padding: 0 20px;
+}
+
+/* キャッチコピーのスタイル */
+.hero-text h1 {
+    font-family: Playfair, serif;
+    font-size: 4rem; /* 大きめのフォントサイズ */
+    font-weight: bold;
+    margin-bottom: 20px; /* 下に余白を追加 */
+}
+
+/* サブコピーのスタイル */
+.hero-text p {
+    font-family: "Noto Sans JP", sans-serif;
+    font-size: 1.5rem;
+    font-weight: 400;
+    /* 必要に応じて、文字の間隔を広げる */
+    letter-spacing: 0.05em; 
+}
+
+
+/* PC表示/モバイル表示の切り替えクラス */
+.mobile-only {
+    display: none !important; /* 初期状態（PC時）は非表示 */
+}
+
+/* モバイルメニューに含める要素のスタイル */
+.mobile-contact-elements {
+    display: none; /* 初期状態（PC時）は非表示 */
+    /* モバイル時の配置を調整するためのFlexbox */
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    margin-top: 30px;
+}
+.mobile-contact-elements .contact-button {
+    margin: 10px 0;
+    width: 80%;
+    text-align: center;
+}
+.mobile-contact-elements .language-select {
+    margin-top: 20px;
+    margin-left: 0;
+}
+
+
+/* --- ハンバーガーメニューの基本スタイル (共通CSSに追加) --- */
+.hamburger-menu {
+    /* デフォルトでは非表示 */
+    display: none; 
+    background: none;
+    border: none;
+    cursor: pointer;
+    /* その他装飾 */
+    width: 30px; 
+    height: 25px;
+    position: relative;
+    z-index: 1100; /* ヘッダー内の要素よりも手前に */
+}
+.hamburger-menu span {
+    display: block;
+    height: 3px;
+    background-color: #fff;
+    border-radius: 5px;
+    margin-bottom: 5px;
+    transition: transform 0.3s, opacity 0.3s;
+}
+
+
+
+
+/*--------About-usセクションのスタイル ------- */
+.about-us-section {
+    background-color: #000000;
+    color: #fff;
+    padding: 80px 150px;
+    margin: 0 auto;
+}
+
+.about-us-section h1 {
+    font-family: "Lexend Giga", sans-serif;
+    font-size: 2.5rem;
+    font-weight: bold;
+    margin-bottom: 30px;
+}
+.about-us-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    width: 1200px;
+}
+.about-us-text {
+    flex-basis: 50%; 
+}
+.about-us-text p {
+    font-family: "Noto Sans JP", sans-serif;
+    font-size: 1.0rem;
+    line-height: 1.8;
+    margin-bottom: 20px;
+    width: 100%;
+} 
+.about-us-image {
+    flex-basis: 45%; 
+    overflow: hidden; 
+}
+.about-us-image img {
+    display: block;
+    width: 100%;
+    height: auto;
+}
+
+/* ボタンの共通スタイル */
+.button-fill {
+    display: inline-flex; /* 矢印とテキストを横並びにする */
+    align-items: center; /* 垂直方向の中央揃え */
+    padding: 12px 30px;
+    text-decoration: none;
+    font-size: 1.0rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    margin-top: 20px;
+    
+    /* フィルデザイン */
+    background-color: #0015ff; /* 背景色 (例: オレンジレッド) */
+    color: #FFFFFF; /* テキストを白に */
+    border: none;
+    border-radius: 25px; /* 角を大きく丸く */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* 軽い影を付けて立体感を出す */
+}
+
+/* 矢印のスタイル */
+.button-fill::after {
+    content: '→'; /* 矢印の記号 */
+    margin-left: 10px; /* テキストとの間隔 */
+    font-size: 1.2rem;
+    transition: transform 0.3s ease;
+}
+
+/* ホバー時のスタイル */
+.button-fill:hover {
+    background-color: #0015ffde; /* 背景色を少し明るく */
+}
+
+/* ホバー時に矢印を少し移動させる */
+.button-fill:hover::after {
+    transform: translateX(3px);
+}
+
+/* Wave Divider のスタイル */
+.wave-divider {
+    line-height: 0; /* SVGの上下の余白を消すため */
+    position: relative;
+    margin-top: -1px; /* わずかな隙間を埋めるため */
+    rotate: 180deg; /* 波形を上下反転 */
+}
+
+.wave-divider svg {
+    display: block;
+    width: 100%;
+    height: auto;
+}
+
+/*--------serviceセクションのスタイル ------- */
+.service-section {
+    background-color: #ffffff;
+    color: #000;
+    padding: 0 150px;
+    margin-top: -50px;
+}
+.service-section h1 {
+    font-family: "Lexend Giga", sans-serif;
+    font-size: 2.5rem;
+    font-weight: bold;
+    margin-bottom: 25px;
+    color: #0088ff;
+}
+.service-section h2 {
+    font-family: "Lexend Giga", sans-serif;
+    font-size: 1.75rem;
+}
+.service-section p {
+    font-family: "Noto Sans JP", sans-serif;
+    font-size: 1.12rem;
+    line-height: 1.8;
+    margin-top: 30px;
+    width: 100%;
+} 
+/* ★★★ 横並びの核心部分 ★★★ */
+.service-card-wrapper {
+    display: flex; /* Flexコンテナにする */
+    justify-content: space-between; /* カード間に均等なスペースを設ける */
+    gap: 30px; /* カード間の固定スペース (Flexbox/Gridの現代的な指定) */
+    margin-top: 50px;
+}
+
+/* 各カードのデザイン */
+.service-card {
+    /* 1/3の幅から、gap分を引いた幅にする (flex-grow: 1 で均等幅) */
+    flex-grow: 1; 
+    flex-basis: 0; /* flex-grow: 1 と組み合わせることで均等幅を実現 */
+    
+    /* カードの見た目 */
+    border: 1px solid #ccc; /* 枠線 */
+    padding: 30px;
+    height: auto; /* コンテンツに合わせて高さを調整 */
+    transition: box-shadow 0.3s ease-out, transform 0.3s ease-out; /* ホバーアニメーションの準備 */
+}
+/* ★★★ ホバーで浮き上がらせるエフェクト ★★★ */
+.service-card:hover {
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15); 
+    transform: translateY(-5px); 
+     border-color: #eee; 
+}
+.service-card h2{
+    font-family: "Noto Sans JP", sans-serif;
+    font-size: 1.5rem;
+    margin-top: 20px;
+    font-weight: 400;
+}
+.service-card .card-category {
+    font-family: "Noto Sans JP", sans-serif;
+    font-size: 0.85rem;
+    color: #535353;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+.service-card p {
+    font-family: "Noto Sans JP", sans-serif;
+    font-size: 1.0rem;
+    line-height: 1.8;
+    margin-top: 20px;
+}
+/*------ スマホバージョンの設定 ------*/
+@media (max-width: 768px) {
+    /* ハンバーガーメニューをモバイルでのみ表示 */
+    .hamburger-menu {
+        display: block; 
+    }
+
+    /* --- 1. ヘッダー全体の調整 --- */
+    .main-header {
+        /* 左右のパディングを減らす */
+        padding: 15px 20px;
+        /* 固定ヘッダーの幅を画面幅に合わせる */
+        width: 100%;
+        /* ヘッダー全体を縦に並べる（任意: ロゴとナビを分ける場合など） */
+        /* display: block; */ 
+    }
+
+    /* --- 2. ロゴの調整 --- */
+    .logo-link {
+        /* ロゴと社名の間隔を減らす */
+        gap: 10px;
+    }
+    .logo img {
+        /* ロゴ画像を小さくする */
+        height: 40px; 
+    }
+    .company-name {
+        /* 社名のフォントサイズを小さくする */
+        font-size: 20px;
+    }
+    
+    /* --- 3. ナビゲーションメニューの非表示化とハンバーガーメニューの準備 --- */
+    /* ナビメニューは非表示にし、ハンバーガーメニューで切り替える */
+    .main-nav {
+        /* デフォルトでナビを非表示にする */
+        display: none; 
+    }
+    .main-nav li {
+        width: 100%;
+        text-align: center;
+        margin-right: 0;
+        padding: 15px 0;
+        border-bottom: 1px solid rgba(255,255,255,0.1);
+    }
+
+    .main-nav ul{
+        flex-direction: column;
+        align-items: center;
+        width: 100%;
+        padding: 0;
+        margin : 0;
+    }
+
+    .contact-button {
+        /* ボタンのパディングを減らして小さくする */
+        padding: 8px 15px;
+        /* 言語選択との間隔を調整 */
+        margin-right: 10px;
+        /* 文字を小さくする */
+        font-size: 0.875rem;
+    }
+    
+    .mobile-contact-elements .contact-button {
+        white-space: nowrap; /* テキストの折り返しを防止 */
+        width: auto;
+        max-width: 90%;
+        text-align: center;
+        margin: 10px auto;
+    }   
+
+    /* 言語選択ボタンの調整 */
+    .lang-toggle-button {
+        padding: 8px 10px; /* パディングをさらに減らす */
+        font-size: 0.875rem;
+        gap: 3px;
+    }
+
+    /* --- 5. ヒーローセクションの調整 --- */
+    .hero-section {
+        /* ヘッダーの高さが変わった場合は calc の値を調整 */
+        height: calc(100vh - 55px);
+    }
+    .hero-text h1 {
+        /* キャッチコピーを小さくする */
+        font-size: 2.2rem; 
+        margin-bottom: 15px;
+    }
+    .hero-text p {
+        /* サブコピーを小さくする */
+        font-size: 1.1rem;
+    }
+    
+    /* PC表示の要素を非表示に */
+    .desktop-only {
+        display: none !important;
+    }
+    
+    /* モバイル表示の要素を表示に */
+    .mobile-only {
+        display: block !important;
+    }
+    
+    /* ハンバーガーメニューが開いたときのモバイルメニューの中身 */
+    .main-nav.open {
+        display: flex; 
+        flex-direction: column; /* 縦並び */
+        align-items: center; 
+        
+        /* モバイルメニューが開いたときにボタン類を表示 */
+        .mobile-contact-elements {
+            display: flex; /* 縦並びで表示 */
+        }
+    }
+    
+    /* ... 既存の main-nav li の縦並びCSSなど ... */
+
+    /* 右側の要素を非表示（ハンバーガーボタンのみ残す） */
+    .right-elements {
+        /* PCで表示されていた要素を非表示に */
+        /* display: flex; をリセットし、ハンバーガーボタンだけ見えるように調整が必要 */
+        justify-content: flex-end; /* ハンバーガーボタンを右端へ */
+    }
+
+    /* セクション全体のパディングをさらに調整 */
+    .about-us-section {
+        padding: 40px 20px; 
+    }
+
+    /* タイトルのフォントサイズを調整 */
+    .about-us-section h1 {
+        font-size: 2.0rem;
+        margin-bottom: 20px;
+    }
+
+    /* コンテナの配置を縦積み (Flexbox) に変更 */
+    .about-us-container {
+        flex-direction: column; /* 垂直方向に要素を積み重ねる */
+        width: 100%;
+    }
+    
+    /* テキストと画像の幅を100%に設定 */
+    .about-us-text {
+        flex-basis: auto; /* 50%の設定を解除 */
+        width: 100%;
+        margin-bottom: 30px; /* テキストの下に隙間を追加 */
+    }
+
+    .about-us-image {
+        flex-basis: auto; /* 45%の設定を解除 */
+        width: 100%;
+    }
+    
+    /* テキストのフォントサイズを調整 (任意) */
+    .about-us-text p {
+        font-size: 0.95rem;
+    }
+
+    /* Contactボタン（button-fill）の調整 */
+    .button-fill {
+        /* マージンを調整し、モバイルで幅を広く使う */
+        margin-top: 15px; 
+        padding: 10px 20px;
+        font-size: 0.9rem;
+        /* 適切な幅を設定したい場合は以下を有効化 */
+        /* width: 80%; */
+        /* margin-left: auto; */
+        /* margin-right: auto; */
+    }
+    .button-fill::after {
+        font-size: 1.0rem;
+    }
+
+    /* --- Serviceセクション全体の調整 --- */
+    .service-section {
+        padding: 40px 20px; /* 左右のパディングを減らす */
+    }
+
+    /* Serviceタイトルの調整 */
+    .service-section h1 {
+        font-size: 2.0rem;
+        margin-bottom: 15px;
+    }
+    
+    /* Serviceセクションのテキスト調整（例: 導入文） */
+    .service-section p {
+        font-size: 1.0rem;
+        margin-top: 20px;
+    }
+
+    /* --- Serviceカードの調整 --- */
+    .service-card-wrapper {
+        flex-direction: column; /* ★横並びから縦並びへ変更★ */
+        gap: 20px; /* カード間のスペースを調整 */
+        margin-top: 30px;
+    }
+    
+    .service-card {
+        /* 縦並びなので、幅を100%に */
+        width: 100%;
+        padding: 20px;
+        flex-grow: 0;
+        flex-basis: auto;
+    }
+    
+    /* カード内の要素の調整 */
+    .service-card .card-number {
+        font-size: 2.0rem; /* 番号を少し小さく */
+        margin-bottom: 15px;
+    }
+
+    .service-card h2 {
+        font-size: 1.3rem; /* タイトルを調整 */
+    }
+    
+    .service-card .card-category {
+        font-size: 0.8rem;
+    }
+    
+    .service-card p {
+        font-size: 0.9rem; /* 説明文を調整 */
+        margin-top: 15px;
+    }
+
+    /* Serviceセクションのh2（Serviceセクション固有のh2がないため、カード内のh2を参照） */
+    /* .service-section h2 はカード内のh2とは別に、Serviceセクション直下にh2がある場合のスタイルです */
+    /* 既存のCSSにはServiceセクション直下のh2の調整がないため、カード内のh2を優先します。 */
+    /* もしServiceセクション直下にh2がある場合は、以下のように調整してください。 */
+    /*
+    .service-section h2 {
+        font-size: 1.5rem;
+    }
+    */
+}
