@@ -918,4 +918,85 @@ img {
     .partners-logos img {
         flex-basis: calc(50% - 20px);
     }
+    .service-section {
+        /* 左右のパディングを大きく減らす (PC版: 150px -> モバイル版: 20px) */
+        padding: 0 20px; 
+        /* margin-top はそのまま維持 */
+    }
+    
+    /* --- section-header (H1とボタンのコンテナ) の調整 --- */
+    .section-header {
+        /* 横並び (flex) から、縦積み (column) に変更 */
+        flex-direction: column;
+        /* h1とボタンを中央揃えに (任意) */
+        align-items: flex-start; /* 左寄せに戻す場合は flex-start */
+        margin-bottom: 20px; /* PC版より少し間隔を詰める */
+        
+        /* h1とボタンの間隔を制御するために gap を使用 */
+        gap: 10px; 
+    }
+    
+    /* --- H1 (Serviceタイトル) の調整 --- */
+    .service-section h1 {
+        /* PC版の2.5remから小さくする */
+        font-size: 2.0rem; 
+        margin-bottom: 0; /* section-headerで gap を使っているため 0 に */
+    }
+
+    /* --- ボタン (.button-fill-2) の調整 --- */
+    .button-fill-2 {
+        /* モバイルでボタンの幅を広く使う */
+        width: 100%; 
+        /* テキストと矢印を中央に配置 */
+        justify-content: center; 
+        
+        /* パディングを少し減らしてコンパクトに */
+        padding: 10px 20px;
+        font-size: 0.95rem;
+    }
+    /* --- Partnersセクションの調整 --- */
+    .partners-section {
+        /* 左右のパディングを減らす */
+        padding: 40px 20px; 
+    }
+
+    /* PartnersとContactの見出しH1の調整 */
+    .partners-section h1,
+    .contact-section h1 {
+        /* フォントサイズを小さく */
+        font-size: 2.0rem; 
+        /* margin-topを減らす（他のコンテンツとの詰まりを解消） */
+        margin-top: 40px; 
+        margin-bottom: 20px;
+    }
+    
+    /* ロゴコンテナの調整 */
+    .partners-logos {
+        /* 左右のパディングをモバイル用に調整 */
+        padding: 20px 0; 
+        /* gapを調整 */
+        gap: 20px;
+        /* 中央寄せの justify-content: space-around; はそのまま維持 */
+    }
+
+    /* ロゴ画像（Flexboxで2列に）の調整 */
+    .partners-logos img {
+        /* 2つのロゴが並ぶように、50%から間隔分を引いた幅を指定 */
+        flex-basis: calc(50% - 20px);
+        /* 既存のモバイルCSSにこのルールがある場合は、そちらの値を優先してください */
+    }
+
+    /* --- Contactセクションの調整 --- */
+    .contact-section {
+        /* 左右のパディングを減らす */
+        padding: 40px 20px; 
+        
+        /* Contactセクションのh1は上記のルールで調整済み */
+    }
+    
+    .contact-section p {
+        /* 説明文のフォントサイズをモバイル用に調整 */
+        font-size: 1.0rem;
+        margin-bottom: 30px;
+    }
 }
