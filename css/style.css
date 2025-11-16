@@ -428,6 +428,10 @@ img {
     margin-top: 30px;
     width: 100%;
 } 
+.service-section .for-global-title {
+    margin-top: 150px;
+    margin-bottom: 10px;
+}
 /* ★★★ 横並びの核心部分 ★★★ */
 .service-card-wrapper {
     display: flex; /* Flexコンテナにする */
@@ -438,22 +442,25 @@ img {
 
 /* 各カードのデザイン */
 .service-card {
-    /* 1/3の幅から、gap分を引いた幅にする (flex-grow: 1 で均等幅) */
     flex-grow: 1; 
-    flex-basis: 0; /* flex-grow: 1 と組み合わせることで均等幅を実現 */
-    
+    flex-basis: 0; 
     /* カードの見た目 */
-    border: 1px solid #ccc; /* 枠線 */
+    background-color: #ffffff; /* ホームページ背景と同じ白 */
+    border: 1px solid #c9daeb; /* 枠線を薄いブルーグレーに変更 */
     padding: 30px;
-    height: auto; /* コンテンツに合わせて高さを調整 */
-    transition: box-shadow 0.3s ease-out, transform 0.3s ease-out; /* ホバーアニメーションの準備 */
+    height: auto; 
+     /* デフォルトで軽いシャドウを付けて、立体感を強調 */
+    box-shadow: 0 2px 5px rgba(0, 71, 171, 0.05); /* 濃い青の薄い影 */
+    transition: box-shadow 0.3s ease-out, transform 0.3s ease-out, border-color 0.3s ease-out; 
 }
+
 /* ★★★ ホバーで浮き上がらせるエフェクト ★★★ */
 .service-card:hover {
-    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15); 
     transform: translateY(-5px); 
-     border-color: #eee; 
+    box-shadow: 0 10px 25px rgba(0, 71, 171, 0.25); 
+    border-color: #00AEEF; 
 }
+
 .service-card h2{
     font-family: "Noto Sans JP", sans-serif;
     font-size: 1.5rem;

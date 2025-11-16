@@ -25,6 +25,17 @@ const translations = {
         'card-3-title':'運用・サポート体制の構築',
         'card-3-category':'マネージメントサービス',
         'card-3-text':'導入後の運用支援、FAQ整備、社内研修などもサポート。海外企業とのコミュニケーションを代行し、長期的な安定運用を支えます。',
+        'Service-for-Global':'- 海外企業向け事業',
+        'service-text-g':'Cresight Japanは、海外SaaS/AIスタートアップの日本市場参入をワンストップで支援します。翻訳・販売、市場検証を統合した独自の体制で、最短ルートで日本展開を実現します。成果報酬型を採用しており、初期コストを抑えて市場テストを行うことが可能です。',
+        'card-1-title-g':'日本市場への販売・営業代行',
+        'card-1-category-g':'セールス・ビジネス開発',
+        'card-1-text-g':' ターゲット業界のリサーチから営業活動、契約交渉までを一括でサポート。信頼ある日本企業ネットワークを活かし、最適なリードを獲得します。',
+        'card-2-title-g':'翻訳・ローカライゼーション支援',
+        'card-2-category-g':'コンテンツ適合化',
+        'card-2-text-g':'製品UI、マニュアル、マーケティング資料を自然な日本語に最適化。単なる翻訳ではなく、文化的背景を踏まえた伝わる表現でブランド価値を高めます。',
+        'card-3-title-g':'PoC（概念検証）・市場適合テスト',
+        'card-3-category-g':'コンサルティング',
+        'card-3-text-g':'日本企業との共同プロジェクトを通じ、製品の市場適合性を実際に検証。得られた結果をレポート化し、改良提案まで行います。',
     },
     'en': {
         'home': 'Home',
@@ -52,7 +63,17 @@ const translations = {
         'card-3-title':'Ongoing Support & Operations',
         'card-3-category':'Management Services',
         'card-3-text':'We provide continuous support - from training and documentation to customer success management - ensuring your solution runs smoothly in Japan.',
-
+        'Service-for-Global':'- for Global',
+        'service-text-g':'Cresight Japan  provides end-to-end market entry support for global SaaS and AI startups entering Japan. Through our integrated system of translation, localization, sales, and PoC validation, we help you establish traction in the Japanese market with speed and precision. Our success-based model minimizes initial cost and focuses on tangible results.',
+        'card-1-title-g':'Sales Representation in Japan',
+        'card-1-category-g':'Sales & Business Development',
+        'card-1-text-g':'We handle lead generation, outreach, and contract negotiation, leveraging our trusted local business network.Our bilingual sales team ensures smooth communication and transparent processes.',
+        'card-2-title-g':'Localization & Translation',
+        'card-2-category-g':'Content Adaptation',
+        'card-2-text-g':' We translate and localize your product interface, documentation, and marketing materials — not word by word, but meaning by meaning — to resonate with Japanese users.',
+        'card-3-title-g':'PoC & Market Validation',
+        'card-3-category-g':'Consulting',
+        'card-3-text-g':'We conduct real-world PoC projects with Japanese enterprises to test market fit, gather feedback, and generate measurable results before full-scale rollout.',
     }
     
 };
@@ -187,6 +208,32 @@ document.addEventListener('DOMContentLoaded', function() {
         if (card3Title) card3Title.textContent = translations[lang]['card-3-title'];
         if (card3Category) card3Category.textContent = translations[lang]['card-3-category'];
         if (card3Text) card3Text.textContent = translations[lang]['card-3-text'];
+        
+        // ★★★ Service for Global セクションのテキストを更新 ★★★
+        const serviceForGlobal = document.getElementById('Service-for-Global');
+        const serviceTextG = document.getElementById('service-text-g');
+        const card1TitleG = document.getElementById('card-1-title-g');
+        const card1CategoryG = document.getElementById('card-1-category-g');
+        const card1TextG = document.getElementById('card-1-text-g');
+        const card2TitleG = document.getElementById('card-2-title-g');
+        const card2CategoryG = document.getElementById('card-2-category-g');
+        const card2TextG = document.getElementById('card-2-text-g');
+        const card3TitleG = document.getElementById('card-3-title-g');
+        const card3CategoryG = document.getElementById('card-3-category-g');
+        const card3TextG = document.getElementById('card-3-text-g');
+
+        if (serviceForGlobal) serviceForGlobal.textContent = translations[lang]['Service-for-Global'];
+        if (serviceTextG) serviceTextG.textContent = translations[lang]['service-text-g'];
+        if (card1TitleG) card1TitleG.textContent = translations[lang]['card-1-title-g'];
+        if (card1CategoryG) card1CategoryG.textContent = translations[lang]['card-1-category-g'];
+        if (card1TextG) card1TextG.textContent = translations[lang]['card-1-text-g'];
+        if (card2TitleG) card2TitleG.textContent = translations[lang]['card-2-title-g'];
+        if (card2CategoryG) card2CategoryG.textContent = translations[lang]['card-2-category-g'];
+        if (card2TextG) card2TextG.textContent = translations[lang]['card-2-text-g'];
+        if (card3TitleG) card3TitleG.textContent = translations[lang]['card-3-title-g'];
+        if (card3CategoryG) card3CategoryG.textContent = translations[lang]['card-3-category-g'];
+        if (card3TextG) card3TextG.textContent = translations[lang]['card-3-text-g'];
+
         
         // Contactボタンのテキストを更新 (両方)
         const contactButtonDesktop = document.querySelector('.contact-button.desktop-only');
