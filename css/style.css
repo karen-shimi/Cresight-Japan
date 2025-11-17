@@ -118,8 +118,8 @@ img {
 /* Contactボタンのスタイル */
 .contact-button {
     text-decoration: none;
-    background-color: #00aaff; /* 濃い目の黄色 */
-    color: #000;
+    background-color: #0015ff; /* 濃い目の黄色 */
+    color: #fff;
     font-weight: bold;
     /* 上下のパディングは多めに、左右はさらに多めに */
     padding: 10px 20px; 
@@ -131,7 +131,7 @@ img {
 }
 
 .contact-button:hover {
-    background-color: #009cea; /* ホバーで少し暗く */
+    background-color: #0012dd; /* ホバーで少し暗く */
 }
 
 /* Language選択のドロップダウンコンテナ */
@@ -492,8 +492,9 @@ img {
     flex-grow: 1; 
     flex-basis: 0; 
     /* カードの見た目 */
-    background-color: #ffffff; /* ホームページ背景と同じ白 */
+    background-color: #efefef84; /* ホームページ背景と同じ白 */
     border: 1px solid #c9daeb; /* 枠線を薄いブルーグレーに変更 */
+    border-radius: 10px;
     padding: 30px;
     height: auto; 
      /* デフォルトで軽いシャドウを付けて、立体感を強調 */
